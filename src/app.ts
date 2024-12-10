@@ -8,8 +8,6 @@ import router from './app/route';
 import globalErrorHandler from './app/middleware/globalErrorhandler';
 import notFound from './app/middleware/notFound';
 
-
-
 const app: Application = express();
 
 //parsers
@@ -19,7 +17,8 @@ app.use(cors());
 // application routes
 app.use('/api/v1', router);
 
-const test = (req: Request, res: Response) => {
+const test = async (req: Request, res: Response) => {
+  // Promise.reject();
   const a = 10;
   res.send(a);
 };

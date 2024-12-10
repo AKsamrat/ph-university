@@ -142,9 +142,13 @@ const studentSchema = new Schema<TStudent, StudentModel>(
     profileImg: { type: String },
     admissionSemester: {
       type: Schema.Types.ObjectId,
-     ref:'AcademicSemester'
+      ref: 'AcademicSemester'
     },
-    
+    academicDepartment: {
+      type: Schema.Types.ObjectId,
+      ref: 'AcademicDepartment',
+    },
+
     isDeleted: {
       type: Boolean,
       default: false,
@@ -159,7 +163,7 @@ const studentSchema = new Schema<TStudent, StudentModel>(
 
 // virtual
 studentSchema.virtual('fullName').get(function () {
-  return this.name.firstName + this.name.middleName + this.name.lastName;
+  return this?.name?.firstName + this?.name?.middleName + this?.name?.lastName;
 });
 
 // pre save middleware/ hook : will work on create()  save()
