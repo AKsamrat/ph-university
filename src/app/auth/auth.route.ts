@@ -5,6 +5,7 @@ import { AuthControllers } from './auth.controller';
 import { AuthValidation } from './auth.validation';
 import auth from '../middleware/auth';
 import validateRequest from '../middleware/validateRequest';
+import { USER_ROLE } from '../user/user.constant';
 
 const router = express.Router();
 
